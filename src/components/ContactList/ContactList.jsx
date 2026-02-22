@@ -1,26 +1,22 @@
-import { Component } from "react";
-
+import { useSelector } from "react-redux";
 import { Contact } from "./Contact";
 
 import styles from "./ContactList.module.scss";
 
-export const ContactList = function ({ contacts, onCheck, handleDelete }) {
-	
-		return (
-			<>
+export const ContactList = function () {
+	const filter = useSelector((state) => state.filter);
+
+	const contacts = useSelector((state) => state.contacts.filter((contact) => contact.name.toLowerCase().includes(state.filter.toLowerCase())));
+
+	return (
+		<>
+			{Boolean(contacts.length) && (
 				<ul className={styles["contact-list"]}>
 					{contacts.map((contact) => (
-						<Contact
-							onCheck={onCheck}
-							handleDelete={handleDelete}
-							id={contact.id}
-							name={contact.name}
-							number={contact.number}
-							completed={contact.completed}
-							key={contact.id}
-						/>
+						<Contact id={contact.id} name={contact.name} number={contact.number} key={contact.id} />
 					))}
 				</ul>
-			</>
-		);
-}
+			)}
+		</>
+	);
+};
