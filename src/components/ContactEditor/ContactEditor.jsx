@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/actions";
+import { addContact } from "../../redux/contactsSlice.js";
 
 import styles from "./ContactEditor.module.scss";
 
@@ -28,7 +28,7 @@ export const ContactEditor = function () {
 			return;
 		}
 
-		dispatch(addContact(name, number))
+		dispatch(addContact({name: name, number: number}))
 
 		form.reset();
 	};

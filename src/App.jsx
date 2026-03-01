@@ -1,6 +1,3 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addContact, deleteContact, setFilter } from "./redux/actions";
-
 import { Container } from "./components/Container/Container";
 
 import { ContactEditor } from "./components/ContactEditor/ContactEditor";
