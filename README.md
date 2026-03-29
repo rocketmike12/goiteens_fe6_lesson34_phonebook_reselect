@@ -1,1 +1,1 @@
-# hw17 (phonebook w/ hooks) 
+# lesson34 (phonebook w/ reselect)
